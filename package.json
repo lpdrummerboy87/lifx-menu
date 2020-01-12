@@ -1,6 +1,15 @@
 {
+  "name": "lifx-menu",
+  "author": {
+    "name": "Joshua Stanford"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lpdrummerboy87/lifx-menu.git"
+  },
+  "license": "MIT",
   "scripts": {
-    "build": "npm install && ./node_modules/.bin/electron-rebuild && ./node_modules/.bin/electron-packager . lifx-menu --icon=./build/icon.icns --overwrite",
+    "build": "npm install && ./node_modules/.bin/electron-rebuild && ./node_modules/.bin/electron-packager . 'LIFX Menu' --out=build --icon=./build/icon.icns --overwrite",
     "start": "./node_modules/.bin/electron index.js"
   },
   "dependencies": {
