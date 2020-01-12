@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>LIFX Color Picker</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        
+        <script src="node_modules/@jaames/iro/dist/iro.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <button type="button" class="btn fas fa-window-close float-right" onclick="quit()"></button>    
+            <div id="color-picker-container"></div>
+            
+            <div class="row">
+                <div class="col text-center">
+                    <button id="btnPower" class="btn fas fa-power-off text-center" onclick="togglePower()"></button>
+                    <div id="errors"></div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/lifx.js"></script>
+        <script>
+            // set up the color picker object
+            var colorPicker = new iro.ColorPicker("#color-picker-container", {
+                // Set the size of the color picker
+                width: 250
+            });
+
+            // listen to the color picker's input:end event
+            colorPicker.on('input:end', setColor);
+
+            ipcRenderer.on('setColor', (event, color) => {
+                console.log('setColor message received.');
+                console.log(color);
+                colorPicker.color.hsv = { h: color.h, s: color.s * 100, v: color.l * 100 };
+            });
+        </script>
+    </body>
+</html>

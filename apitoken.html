@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>LIFX Color Picker</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+        <script src="node_modules/@jaames/iro/dist/iro.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <h2>LIFX API Token</h2>
+    
+                <input id="apitoken" class="form-control" type="text" name="lifxApiToken"><br>
+                <button class="btn btn-primary">Save</button>
+            </form>
+            <div id="errors"></div>
+        </div>
+
+        <script src="assets/js/lifx.js"></script>
+        <script>
+        // handle saving api token
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            var apiToken = document.querySelector('#apitoken').value;
+            if (apiToken) {
+                ipcRenderer.send('setApiToken', apiToken);
+            }
+        });
+        </script>
+    </body>
+</html>

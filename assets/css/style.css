@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(116, 116, 116);
+}
+
+#color-picker-container {
+    margin-top: 8px;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+button#btnPower {
+    margin-top: 4px;
+}
+
+button#btnPower.power-on {
+    margin-top: 4px;
+    color: #fff;
+}
