@@ -16,7 +16,7 @@
     "@fortawesome/fontawesome-free": "^5.12.0",
     "@jaames/iro": "^4.5.3",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "keytar": "^5.0.0",
     "lifx-http-api": "^1.0.3",
     "menubar": "^7.1.0",
